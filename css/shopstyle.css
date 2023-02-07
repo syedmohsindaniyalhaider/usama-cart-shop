@@ -1,0 +1,777 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    list-style: none;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.main-container {
+    background-color: #645CBB;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    min-width: 100%;
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    background: #fff;
+    padding: 40px 30px;
+    perspective: 2700px;
+}
+
+.container .cover {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    top: 0;
+    z-index: 98;
+    transition: all 1s ease;
+    transform-origin: left;
+    transform-style: preserve-3d;
+}
+
+.container .cover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #645CBB;
+    opacity: 0.5;
+    z-index: 100;
+}
+
+.container .cover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #645CBB;
+    opacity: 0.5;
+    z-index: 100;
+    transform: rotateY(180deg);
+}
+
+.container #flip:checked~.cover {
+    transform: rotateY(-180deg);
+}
+
+.container .cover img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 12;
+    backface-visibility: hidden;
+}
+
+.container .cover .back .back-img {
+    transform: rotateY(180deg);
+}
+
+.container .cover .form-link {
+    position: absolute;
+    z-index: 111;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.forgetLink {
+    font-size: 14px;
+}
+
+.cover .form-link .img-text-1,
+.cover .form-link .img-text-2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    backface-visibility: hidden;
+}
+
+
+.cover .back .form-link .img-text-1,
+.cover .back .form-link .img-text-2 {
+    transform: rotateY(180deg);
+}
+
+.cover .form-link .img-text-2 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.container form {
+    height: 100%;
+    width: 70%;
+    background: #fff;
+}
+
+.login-link {
+    padding-left: 5px;
+}
+
+.container .form-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-content .login-form,
+.form-content .sign-form {
+
+    width: calc(100% / 2 - 25px);
+    padding: 30px;
+}
+
+.login-form {
+    margin-right: 30px;
+}
+
+form .form-content .title {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+}
+
+form .form-content .input-groups {
+    margin-top: 30px;
+}
+
+form .form-content .input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+form .form-content .input-box .input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #bababa;
+    transition: all 0.3s ease
+}
+
+form .form-content .input-box .input:focus,
+form .form-content .input-box .input:valid {
+    border-bottom-color: #645CBB;
+}
+
+form .form-content .input-box i {
+    position: absolute;
+    color: #645CBB;
+    font-size: 18px;
+}
+
+
+form .form-content .button {
+    margin-top: 40px;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    transition: ease-out 0.3s;
+    background-color: #A084DC;
+    border: none;
+    font-weight: 500;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+form .form-content .form-link label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+
+form .form-content .form-link label:hover {
+    text-decoration: underline;
+}
+
+form .form-content .pass a {
+    color: #645CBB;
+}
+
+form .form-content .form-link .link {
+    color: #645CBB;
+}
+
+form .form-content .login-text,
+form .form-content .signup-text {
+    text-align: center;
+    margin-top: 25px;
+}
+
+form .form-content .forgetPassword {
+    font-size: 16px;
+}
+
+.container #flip {
+    display: none;
+}
+
+@media (max-width:730px) {
+    .container .cover {
+        display: none;
+    }
+
+    .form-content .login-form,
+    .form-content .sign-form {
+
+        width: 100%;
+    }
+
+    .form-content .sign-form {
+        display: none;
+    }
+
+    .container #flip:checked~form .sign-form {
+        display: block;
+    }
+
+    .container #flip:checked~form .login-form {
+        display: none;
+    }
+
+}
+
+
+
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+    background-color: #645CBB !important;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: #645CBB !important;
+    color: #000;
+    z-index: 100;
+    top: 0;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    padding: 10px 30px
+}
+
+.menu-items {
+    order: 2;
+    display: flex;
+}
+
+
+.menu-items li {
+    list-style: none;
+    margin-left: 2rem;
+    font-size: 1rem !important;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    color: #fff;
+
+}
+
+.navbar .main-title {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+
+}
+
+.search-container {
+    padding: 2rem;
+    width: 400px;
+    background-color: #645CBB;
+    border-radius: 8px;
+}
+
+input[type="search"] {
+    -webkit-appearance: none !important;
+    background-clip: padding-box;
+    background-color: white;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+    border: 1px solid #e0e0e5;
+    font-size: 1rem;
+    width: 100%;
+    line-height: 2;
+    padding: 0.375rem 1.25rem;
+    -webkit-transition: border-color 0.2s;
+    -moz-transition: border-color 0.2s;
+    transition: border-color 0.2s;
+}
+
+
+form.search-form {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-self: center;
+    margin-bottom: 0;
+}
+
+input.search-field {
+    margin-bottom: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    align-self: center;
+    height: 51px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input.search-submit {
+    height: 51px;
+    margin: 0;
+    padding: 1rem 1.3rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    font-family: "Font Awesome 5 Free";
+    font-size: 1rem;
+}
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar {
+        opacity: 0.95;
+    }
+
+    .navbar-container input[type="checkbox"],
+    .navbar-container .hamburger-lines {
+        display: block;
+    }
+
+    .navbar-container {
+        display: block;
+        position: relative;
+        height: 64px;
+    }
+}
+
+
+.gallery-wrapper {
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+
+.gallery-wrapper h1 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 60px;
+
+}
+
+.gallery-container>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #ffeead;
+
+}
+
+.gallery-container>div>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+/* Grid */
+.gallery-container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 125px;
+    grid-auto-flow: dense;
+    width: 80%;
+    margin: 0 auto;
+    /* Fill all spaces with fitted images */
+}
+
+.horizontal {
+    grid-column: span 2;
+}
+
+.vertical {
+    grid-row: span 2;
+}
+
+.big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 1024px) {
+    .wrapper {
+        width: 960px;
+        margin: 0 auto;
+    }
+}
+
+table {
+
+    width: 1050px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #645CBB;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    table {
+        width: 100%;
+    }
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        /* Label the data */
+        content: attr(data-column);
+
+        color: #000;
+        font-weight: bold;
+    }
+}
+
+
+.products-image {
+    float: left;
+    width: 20%;
+}
+
+.product-details {
+    float: left;
+    width: 37%;
+}
+
+.product-price {
+    float: left;
+    width: 12%;
+}
+
+.product-quantity {
+    float: left;
+    width: 10%;
+}
+
+.product-removal {
+    float: left;
+    width: 9%;
+}
+
+.product-line-price {
+    float: left;
+    width: 12%;
+    text-align: right;
+}
+
+/* This is used as the traditional .clearfix class */
+.group:before, .shopping-cart:before,
+.column-labels:before,
+.product:before,
+.totals-item:before,
+.group:after,
+.shopping-cart:after,
+.column-labels:after,
+.product:after,
+.totals-item:after {
+    content: "";
+    display: table;
+}
+
+.group:after, .shopping-cart:after,
+.column-labels:after,
+.product:after,
+.totals-item:after {
+    clear: both;
+}
+
+.group, .shopping-cart,
+.column-labels,
+.product,
+.totals-item {
+    zoom: 1;
+}
+
+/* Apply clearfix in a few places */
+/* Apply dollar signs */
+.product .product-price:before,
+.product .product-line-price:before,
+.totals-value:before {
+    content: "$";
+}
+
+
+h1 {
+    font-weight: 100;
+}
+
+label {
+    color: #aaa;
+}
+
+.shopping-cart {
+    margin-top: -45px;
+}
+
+/* Column headers */
+.column-labels label {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.column-labels .product-image,
+.column-labels .product-details,
+.column-labels .product-removal {
+    text-indent: -9999px;
+}
+
+/* Product entries */
+.product {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.product .products-image {
+    text-align: center;
+}
+
+.product .products-image img {
+    width: 200px;
+    height: 200px
+}
+
+.product .product-details .product-title {
+    margin-right: 20px;
+    font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.product .product-details .product-description {
+    margin: 5px 20px 5px 0;
+    line-height: 1.4em;
+}
+
+.product .product-quantity input {
+    width: 40px;
+}
+
+
+
+.checkout {
+    border: 0;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #645CBB;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 3px;
+    width: 150px;
+    display: grid;
+    margin: 0 auto;
+}
+
+
+
+/* Make adjustments for tablet */
+@media screen and (max-width: 650px) {
+    .shopping-cart {
+        margin: 0;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .column-labels {
+        display: none;
+    }
+
+    .products-image {
+        float: right;
+        width: auto;
+    }
+
+    .product-image img {
+        margin: 0 0 10px 10px;
+    }
+
+    .product-details {
+        float: none;
+        margin-bottom: 10px;
+        width: auto;
+    }
+
+    .product-price {
+        clear: both;
+        width: 70px;
+    }
+
+    .product-quantity {
+        width: 100px;
+    }
+
+    .product-quantity input {
+        margin-left: 20px;
+    }
+
+    .product-quantity:before {
+        content: "x";
+    }
+
+    .product-removal {
+        width: auto;
+    }
+
+    .product-line-price {
+        float: right;
+        width: 70px;
+    }
+}
+
+/* Make more adjustments for phone */
+@media screen and (max-width: 350px) {
+    .product-removal {
+        float: right;
+    }
+
+    .product-line-price {
+        float: right;
+        clear: left;
+        width: auto;
+        margin-top: 10px;
+    }
+
+    .product .product-line-price:before {
+        content: "Item Total: $";
+    }
+
+    .totals .totals-item label {
+        width: 60%;
+    }
+
+    .totals .totals-item .totals-value {
+        width: 40%;
+    }
+}
